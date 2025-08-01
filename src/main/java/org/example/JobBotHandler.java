@@ -702,11 +702,11 @@ public class JobBotHandler extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "https://t.me/easyVocabularystart_bot";
+        return "NISVacancies_bot";
     }
 
     @Override
     public String getBotToken() {
-        return "8162079159:AAF6v6gupfLyopT5xzd60ZOZRvDkPTg8Mfc";
+        return "7693856777:AAErjZhMS3UJjKWtN0acrO35UFLHdhJq2i0";
     }
 }

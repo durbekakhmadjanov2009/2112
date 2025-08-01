@@ -16,10 +16,14 @@ import static java.sql.DriverManager.getConnection;
 
 public class DatabaseManager {
 
-    private static final String DB_URL = "jdbc:postgresql://localhost:5432/nis_vacancies";
-    private static final String DB_USER = "postgres";
-    private static final String DB_PASSWORD = "1";
+    // private static final String DB_URL = "jdbc:postgresql://localhost:5432/nis_vacancies";
+    // private static final String DB_USER = "postgres";
+    // private static final String DB_PASSWORD = "1";
 
+    private static final String DB_URL = "jdbc:postgresql://dpg-d254jqk9c44c73b6v3ig-a.oregon-postgres.render.com/nisaischool";
+    private static final String DB_USER = "nisaischool_user";
+    private static final String DB_PASSWORD = "Fwlz5OdeDZDdSyWG6xRL83eViUCU7bao";
+    
     public List<JobPosition> getJobPositions() {
         List<JobPosition> positions = new ArrayList<>();
         String sql = "SELECT id, name, description, requirements FROM job_positions WHERE is_active = true";

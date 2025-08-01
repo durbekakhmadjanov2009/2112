@@ -1,0 +1,94 @@
+
+-------------------------------------------bosh ish orinlari ---------------------------------------------
+
+DROP TABLE IF EXISTS job_positions;
+
+CREATE TABLE job_positions (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    requirements TEXT,
+    status TEXT DEFAULT 'active'
+);
+
+INSERT INTO job_positions (name, description, requirements, status) VALUES
+-- 1. O‘qituvchi
+('O‘qituvchi',
+ 'Ingliz tili, Matematika, Fizika va boshqa fanlar bo‘yicha',
+ '📋 Talablar:\n\n✅ Pedagogik ma’lumot\n✅ Kamida 2 yil tajriba\n✅ IELTS yoki CEFR sertifikati (afzal)\n✅ Kompyuterda ishlash ko‘nikmasi\n✅ Jamoada ishlash qobiliyati',
+ 'active'),
+
+-- 2. IT mutaxassisi
+('IT mutaxassisi',
+ 'IT sohasida ishlash uchun',
+ '📋 Talablar:\n\n💻 IT sohasida ma’lumot (diplom)\n🔧 Tarmoq va kompyuterlarni sozlash tajribasi\n🖥 Dasturlash yoki tizimlarni boshqarish bilimlari\n👥 Jamoada ishlash ko‘nikmasi',
+ 'active'),
+
+-- 3. Administrator
+('Administrator',
+ 'Maktab boshqaruvi va idora ishlari',
+ '📋 Talablar:\n\n📝 Ma’muriy ishlar tajribasi\n🎓 Oliygoh ma’lumoti\n📊 Microsoft Office bilimlari\n🤝 Muloqot va boshqaruv ko‘nikmalari',
+ 'active'),
+
+-- 4. Texnik xodim
+('Texnik xodim',
+ 'Texnik xizmatlar va yordamchi ishlar',
+ '📋 Talablar:\n\n🔧 Texnik xizmatlar tajribasi\n🏫 Maktab infratuzilmasini tushunish\n💪 Jismonan sog‘lom bo‘lish',
+ 'active'),
+
+-- 5. Boshqalar
+('Boshqalar...',
+ 'Boshqa yo‘nalishlar uchun',
+ '📋 Talablar:\n\nℹ️ Mutaxassislikka mos diplom yoki sertifikat\n📄 Qo‘shimcha hujjatlar talab qilinishi mumkin',
+ 'active');
+
+
+
+---------------------------------------- user_aplication ---------------------------------------------------
+
+CREATE TABLE user_applications (
+    id SERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    full_name TEXT,
+    birth_date TEXT,
+    phone TEXT,
+    email TEXT,
+    address TEXT,
+    education TEXT,
+    experience TEXT,
+    certificates TEXT,
+    branch TEXT,
+    cv_file_id TEXT,
+    diploma_file_id TEXT,
+    certificate_file_id TEXT,
+    video_link TEXT,
+    extra_notes TEXT,
+    submitted_at TIMESTAMP DEFAULT NOW()
+
+    ALTER TABLE user_applications
+    ADD COLUMN job_position TEXT;
+
+    ALTER TABLE user_applications
+    ADD COLUMN username VARCHAR(255);
+
+
+);
+
+
+
+
+-----------------------------------------qabul qilingan sorovlar --------------------------------------------
+
+CREATE TABLE accepted_applications (
+    id SERIAL PRIMARY KEY,
+    full_name VARCHAR(255),
+    phone VARCHAR(50),
+    username VARCHAR(100),
+    email VARCHAR(255),
+    cv_file_id TEXT
+    ALTER TABLE accepted_applications ADD COLUMN certificates text;
+    ALTER TABLE accepted_applications ADD COLUMN branch text;
+    ALTER TABLE accepted_applications ADD COLUMN job_position text;
+
+);
+
